@@ -10,14 +10,27 @@
             font-family: "Tahoma", Geneva, sans-serif;
             margin: 20px;
             padding: 20px;
-        }        
+        }
+        
+        .risk-card {
+            padding: 10px;
+            margin: 10px;
+            width: 245px;
+            background-color: rgba(127, 179, 213, 0.5);
+            border-radius: 5px;
+            display: inline-block;
+        }
 
         #riskDashboard {
             margin-bottom: 20px;
-            padding: 10px;
+            padding: 20px;
             background-color: #eaeded;
             border-radius: 5px;
             display: block;
+        }
+
+        hr {
+            border: 1px solid rgba(127, 179, 213, 0.75); 
         }
     </style>
 
@@ -39,6 +52,7 @@
 
                 <label for="riskLevelSelector">Risk Level</label>
                 <select id="riskLevelSelector">
+                    <option value="default" selected></option>
                     <option value="Low">Low</option>
                     <option value="Medium">Medium</option>
                     <option value="High">High</option>
