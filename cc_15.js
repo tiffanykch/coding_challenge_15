@@ -21,6 +21,17 @@ function addRiskItem(riskName, riskLevel, department) {
     <p><span>Risk Level <strong>${riskLevel}</strong></span></p>
     `;
 
+    // TASK 3
+    const resolveButton = document.createElement("button");
+    resolveButton.setAttribute("id", "resolveButton")
+    resolveButton.textContent = "Resolve"
+    riskCard.appendChild(resolveButton)
+
+    // Attaching event listener to resolve button
+    resolveButton.addEventListener("click", function(event) {
+        resolveTicket(riskCard);
+    })
+
     // Append card to container
     riskDashboard.appendChild(riskCard);
 }
@@ -46,3 +57,8 @@ riskForm.addEventListener("submit" || "enter", function(event) {
     // Clear form fields after submitting
     riskForm.reset() 
 });
+
+// TASK 3: REMOVING RISK ITEMS
+function resolveTicket(card) {
+    riskDashboard.removeChild(card);
+}
