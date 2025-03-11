@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Management Dashboard</title>
+    <style>
+        body {
+            background-color: #7fb3d5;
+            font-family: "Tahoma", Geneva, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }        
+
+        #riskDashboard {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #eaeded;
+            border-radius: 5px;
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1>Risk Management Dashboard</h1>
+    </header>
+
+    <main>
+        <div id = "riskDashboard">
+            <h2>Risk Items</h2>
+
+            <form id="riskSubmission">
+                <label for="riskName">Risk Name</label>
+                <input type="text" name="riskName" id="riskName">
+
+                <br><br>
+
+                <label for="riskLevelSelector">Risk Level</label>
+                <select id="riskLevelSelector">
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+
+                <br><br>
+
+                <label for="department">Department</label>
+                <input type="text" name="department" id="department">
+                
+                <br><br>
+                
+                <button type = "submit">Submit</button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Risk Management © 2025. All rights reserved.</p>
+    </footer>
+
+    <!-- Link to JavaScript file -->
+     <script src="cc_15.js"></script>
+</body>
+</html>
