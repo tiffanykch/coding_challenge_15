@@ -75,6 +75,9 @@ function resolveTicket(card) {
     riskDashboard.removeChild(card);
 }
 
+// Test Case - Task 3
+addRiskItem("Market Fluctuations", "High", "Finance");
+
 // Test Case - Task 4
 addRiskItem("Cybersecurity Threat", "High", "IT");
 addRiskItem("HR Compliance Issue", "Low", "Human Resources");
