@@ -1,9 +1,9 @@
 // TASK 1: CREATING THE BASE STRUCTURE
 
 // Selecting dashboard container
-riskDashboard = document.getElementById("riskDashboard")
+riskDashboard = document.getElementById("riskDashboard");
 
-console.log("Risk Dashboard Loaded")
+console.log("Risk Dashboard Loaded");
 
 // TASK 2: ADDING RISK ITEMS DYNAMICALLY
 
@@ -18,34 +18,25 @@ function addRiskItem(riskName, riskLevel, department) {
     <h3>${riskName}</h3>
     <h4>${department}</h4>
     <hr>
-    <p><span>Risk Level <strong>${riskLevel}</strong></span></p>
+    <p>Risk Level <span><strong>${riskLevel}</strong></span></p>
     `;
 
     // TASK 3
     const resolveButton = document.createElement("button");
-    resolveButton.setAttribute("id", "resolveButton")
-    resolveButton.textContent = "Resolve"
-    riskCard.appendChild(resolveButton)
+    resolveButton.setAttribute("id", "resolveButton");
+    resolveButton.textContent = "Resolve";
+    riskCard.appendChild(resolveButton);
 
     // Attaching event listener to resolve button
-    resolveButton.addEventListener("click", function(event) {
+    resolveButton.addEventListener("click", function() {
         resolveTicket(riskCard);
     })
 
-    // TASK 4: CATEGORIZE RISKS BY LEVEL
-    switch(riskCard.dataset.level) {
-        case "High":
-            riskCard.style.backgroundColor = "#f1948a";
-            break;
-        case "Medium":
-            riskCard.style.backgroundColor = "#f7dc6f";
-            break;
-        case "Low":
-            riskCard.style.backgroundColor = "#7dcea0";
-    }
-
     // Append card to container
     riskDashboard.appendChild(riskCard);
+
+    // TASK 4
+    categorizeByLevel();
 }
 
 // Test Case - Task 1
@@ -78,6 +69,55 @@ function resolveTicket(card) {
 // Test Case - Task 3
 addRiskItem("Market Fluctuations", "High", "Finance");
 
+// TASK 4: CATEGORIZE RISKS BY LEVEL
+function categorizeByLevel() {
+    Array.from(document.querySelectorAll(".risk-card")).forEach(card => {
+        switch(card.dataset.level) {
+            case "High":
+                card.style.backgroundColor = "#f1948a";
+                break;
+            case "Medium":
+                card.style.backgroundColor = "#f7dc6f";
+                break;
+            case "Low":
+                card.style.backgroundColor = "#7dcea0";
+                break;
+        }; 
+    });   
+}
+
 // Test Case - Task 4
 addRiskItem("Cybersecurity Threat", "High", "IT");
 addRiskItem("HR Compliance Issue", "Low", "Human Resources");
+
+// TASK 5: IMPLEMENTING BULK UPDATES
+
+// Create button to increase all risks at once
+const increaseRiskButton = document.createElement("button");
+increaseRiskButton.setAttribute("id", "increaseRiskButton");
+increaseRiskButton.textContent = "Increase Risk Level";
+riskDashboard.appendChild(increaseRiskButton);
+
+// Attach event listener to add functionality to button
+increaseRiskButton.addEventListener("click", function() {    
+    Array.from(document.querySelectorAll(".risk-card")).forEach(card => {
+        
+        // Increases risk levels
+        if (card.dataset.level === "Medium") {
+            card.dataset.level = "High";
+        } else if (card.dataset.level === "Low") {
+            card.dataset.level = "Medium"
+        }
+
+        // Update card text based on updated risk level
+        let riskText = card.querySelector("span")
+        
+        if (riskText) {
+            riskText.textContent = `${card.dataset.level}`;
+            riskText.style.fontWeight = "bold";            
+        }
+
+        // Update card background based on updated risk level using function created in Task 4
+        categorizeByLevel();
+    });
+});
