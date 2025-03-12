@@ -96,7 +96,7 @@ addRiskItem("HR Compliance Issue", "Low", "Human Resources");
 const increaseRiskButton = document.createElement("button");
 increaseRiskButton.setAttribute("id", "increaseRiskButton");
 increaseRiskButton.textContent = "Increase Risk Level";
-riskDashboard.appendChild(increaseRiskButton);
+riskDashboard.insertAdjacentElement("afterend", increaseRiskButton);
 
 // Attach event listener to add functionality to button
 increaseRiskButton.addEventListener("click", function() {    
@@ -121,3 +121,6 @@ increaseRiskButton.addEventListener("click", function() {
         categorizeByLevel();
     });
 });
+
+// Test Case - Task 5
+addRiskItem("Employee Retention", "Low", "HR");
