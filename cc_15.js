@@ -6,7 +6,6 @@ riskDashboard = document.getElementById("riskDashboard");
 console.log("Risk Dashboard Loaded");
 
 // TASK 2: ADDING RISK ITEMS DYNAMICALLY
-
 function addRiskItem(riskName, riskLevel, department) {
 
     const riskCard = document.createElement("div");
@@ -28,8 +27,12 @@ function addRiskItem(riskName, riskLevel, department) {
     riskCard.appendChild(resolveButton);
 
     // Attaching event listener to resolve button
-    resolveButton.addEventListener("click", function() {
+    resolveButton.addEventListener("click", function(event) {
         resolveTicket(riskCard);
+
+        // TASK 6
+        console.log('Ticket resolved!');
+        event.stopPropagation();
     })
 
     // Append card to container
@@ -99,7 +102,7 @@ increaseRiskButton.textContent = "Increase Risk Level";
 riskDashboard.insertAdjacentElement("afterend", increaseRiskButton);
 
 // Attach event listener to add functionality to button
-increaseRiskButton.addEventListener("click", function() {    
+increaseRiskButton.addEventListener("click", function(event) {    
     Array.from(document.querySelectorAll(".risk-card")).forEach(card => {
         
         // Increases risk levels
@@ -119,8 +122,21 @@ increaseRiskButton.addEventListener("click", function() {
 
         // Update card background based on updated risk level using function created in Task 4
         categorizeByLevel();
+
+        // TASK 6
+        console.log("Increased all risk levels!");
+        event.stopPropagation();        
     });
 });
 
 // Test Case - Task 5
 addRiskItem("Employee Retention", "Low", "HR");
+
+// TASK 6: HANDLING EVENT PROPAGRATION
+riskDashboard.addEventListener("click", function(event) {
+    if (event.target.classList.contains("resolveButton")) {
+        event.stopPropagation(); // Prevent event bubbling
+    } else {
+        console.log("Risk item clicked!");
+    }
+});
