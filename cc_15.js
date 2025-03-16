@@ -106,7 +106,9 @@ increaseRiskButton.addEventListener("click", function(event) {
     Array.from(document.querySelectorAll(".risk-card")).forEach(card => {
         
         // Increases risk levels
-        if (card.dataset.level === "Medium") {
+        if (card.dataset.level === "High") {
+            //Risk level remains unchanged
+        } else if (card.dataset.level === "Medium") {
             card.dataset.level = "High";
         } else if (card.dataset.level === "Low") {
             card.dataset.level = "Medium"
