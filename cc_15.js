@@ -22,7 +22,7 @@ function addRiskItem(riskName, riskLevel, department) {
 
     // TASK 3
     const resolveButton = document.createElement("button");
-    resolveButton.setAttribute("id", "resolveButton");
+    resolveButton.classList.add("resolveButton");
     resolveButton.textContent = "Resolve";
     riskCard.appendChild(resolveButton);
 
