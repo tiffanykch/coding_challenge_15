@@ -136,9 +136,12 @@ addRiskItem("Employee Retention", "Low", "HR");
 
 // TASK 6: HANDLING EVENT PROPAGRATION
 riskDashboard.addEventListener("click", function(event) {
-    if (event.target.classList.contains("resolve-button")) {
+    if (event.target.classList.contains("risk-card")) {
+        console.log("Risk card clicked!");
+        event.stopPropagation() //Prevent event bubbling
+    } else if (event.target.classList.contains("resolve-button")) {
         event.stopPropagation(); // Prevent event bubbling
     } else {
-        console.log("Risk item clicked!");
+        console.log("Risk dashboard clicked!");
     }
 });
