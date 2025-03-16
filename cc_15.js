@@ -1,7 +1,7 @@
 // TASK 1: CREATING THE BASE STRUCTURE
 
 // Selecting dashboard container
-riskDashboard = document.getElementById("riskDashboard");
+const riskDashboard = document.getElementById("riskDashboard");
 
 console.log("Risk Dashboard Loaded");
 
