@@ -49,7 +49,7 @@ addRiskItem("Supply Chain Disruption", "Medium", "Operations");
 // Create new risk card through form input
 const riskForm = document.getElementById("riskSubmission")
 
-riskForm.addEventListener("submit" || "enter", function(event) {
+riskForm.addEventListener("submit", function(event) {
     
     // Prevent page reload
     event.preventDefault();
